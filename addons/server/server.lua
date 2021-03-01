@@ -402,3 +402,22 @@ AddEventHandler('fishing:catch', function(bait)
         end
     end
 end)
+
+--BARBER SHOP--
+TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+
+RegisterServerEvent('esx_barbershop:pay')
+AddEventHandler('esx_barbershop:pay' function()
+    local xPlayer = ESX.GetPlayerFromId(source)
+    xPlayer.removeMoney(Config.BarberPrice)
+    TriggerClientEvent('esx:showNotification', source, _U('barber_you_paid') .. '$' .. Config.BarberPrice)
+end)
+
+ESX.RegisterServerCallback('esx_barbershop:checkMoney', function(source, cb)
+    local xPlayer = ESX.GetPlayerFromId(source)
+    if xPlayer.get('money') >= Config.BarberPrice then
+        cb(true)
+    else
+        cb(false)
+    end
+end)

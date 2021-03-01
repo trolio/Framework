@@ -42,5 +42,12 @@ Locales['en'] = {
     ['fish_taking_bait'] = '~g~Fish is taking the bait \n ~h~Press',
     ['cant_fish_from_vehicle'] = '~y~You can not fish from a vehicle',
     ['to_close_to_shore'] = '~y~You need to go further away from the shore'
-    ['fish_boat_rent'] = 'Press ~INPUT_CONTEXT~ to rent a boat'
+    ['fish_boat_rent'] = 'Press ~INPUT_CONTEXT~ to rent a boat',
+    ['barber_valid_purchase'] = 'validate this purchase?',
+    ['barber_yes'] = 'yes',
+    ['barber_no'] = 'no',
+    ['barber_not_enough_money'] = 'You do not have enough money',
+    ['barber_press_access'] = 'Press ~INPUT_CONTEXT~ to access the menu',
+    ['barber_blip'] = 'Barber Shop',
+    ['barber_you_paid'] = 'You Paid '
 }
