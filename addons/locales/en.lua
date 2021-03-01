@@ -36,5 +36,11 @@ Locales['en'] = {
     ['accessories_no_glasses'] = 'You do not have glasses',
     ['accessories_no_helmet'] = 'You do not have a helmet',
     ['accessories_no_mask'] = 'You do not have a mask',
-    ['accessories_you_paid'] = 'You Paid ~g~$%s~s~'
+    ['accessories_you_paid'] = 'You Paid ~g~$%s~s~',
+    ['fishing_stopped'] = '~r~Stopped Fishing',
+    ['fish_got_free'] = '~r~Fish got free',
+    ['fish_taking_bait'] = '~g~Fish is taking the bait \n ~h~Press',
+    ['cant_fish_from_vehicle'] = '~y~You can not fish from a vehicle',
+    ['to_close_to_shore'] = '~y~You need to go further away from the shore'
+    ['fish_boat_rent'] = 'Press ~INPUT_CONTEXT~ to rent a boat'
 }
