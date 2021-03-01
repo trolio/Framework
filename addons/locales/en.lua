@@ -21,5 +21,20 @@ Locales['en'] = {
     ['yacht_suitcase_found'] = 'A suitcase with money has been found! Escape the yacht to end robbery.',
     ['yacht_notification'] = 'The robbery on the yacht has started. Don\'t let the suitcase with money be stolen.',
     ['yacht_robbed_recent'] = 'This yacht has been robbed recently, the attack is impossible.',
-    ['yacht_police'] = 'There is not enough police avaiable.'
+    ['yacht_police'] = 'There is not enough police avaiable.',
+    ['accessories_valid_purchase'] = 'Validate this purchase?',
+    ['accessories_yes'] = 'yes (<span style="color: green;">$%s</span>',
+    ['accessories_no'] = 'no',
+    ['accessories_helmet'] = 'Helmet / Hat',
+    ['accessories_glasses'] = 'Glasses',
+    ['accessories_mask'] = 'Mask',
+    ['accessories_ears'] = 'Ears Accessories',
+    ['set_unset'] = 'Put on / Take off',
+    ['accessories_not_enough_money'] = 'You do not have enough money',
+    ['accessories_press_access'] = 'Press ~INPUT_CONTEXT~ to access the menu',
+    ['accessories_no_ears'] = 'You do not have ears accessories',
+    ['accessories_no_glasses'] = 'You do not have glasses',
+    ['accessories_no_helmet'] = 'You do not have a helmet',
+    ['accessories_no_mask'] = 'You do not have a mask',
+    ['accessories_you_paid'] = 'You Paid ~g~$%s~s~'
 }
