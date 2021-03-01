@@ -1,7 +1,6 @@
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(1)
-    
         local ped = PlayerPedId()
         local yacht = AddBlipForCoord(-2084.88, -1018.12, 12.78)
         SetBlipSprite(yacht, 160)
