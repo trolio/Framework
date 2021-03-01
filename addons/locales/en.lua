@@ -16,7 +16,6 @@ Locales['en'] = {
     ['clip_use'] = 'You have used the loader',
     ['clip_no_weapon'] = 'You do not have a weapon in your hand',
     ['clip_not_suitable'] = 'These ammunitions are not suitable for this weapon',
-    ['yacht_blipname'] = 'Yacht Robbery',
     ['yacht_start_robbery'] = 'Press ~INPUT_CONTEXT~ to start robbery.',
     ['yacht_search_robbery'] = 'Press ~INPUT_CONTEXT~ to search this place.',
     ['yacht_suitcase_found'] = 'A suitcase with money has been found! Escape the yacht to end robbery.',
