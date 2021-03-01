@@ -130,7 +130,7 @@ Config.MaxReward = 125000
 Config.AccessoriesPrice = 20
 Config.EnableControls = true
 
-Config.DrawDistance = 100.0
+Config.AccessoriesDrawDistance = 100.0
 Config.Size   = {x = 1.5, y = 1.5, z = 1.0}
 Config.Color  = {r = 102, g = 102, b = 204}
 Config.Type   = 1
@@ -159,7 +159,7 @@ Config.ShopsBlips = {
 	}
 }
 
-Config.Zones = {
+Config.AccessoriesZones = {
 	Ears = {
 		Pos = {
 			{x= 80.374,		y= -1389.493,	z= 28.406},
