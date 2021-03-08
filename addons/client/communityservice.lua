@@ -45,7 +45,7 @@ function FillActionTable(last_action)
 
 		local service_does_not_exist = true
 
-		local random_selection = communityservice.ServiceLocations[math.random(1,#communityservice.ServiceLocations)]
+		local random_selection = Config.CommunityServiceServiceLocations[math.random(1,#Config.CommunityServiceServiceLocations)]
 
 		for i = 1, #availableActions do
 			if random_selection.coords.x == availableActions[i].coords.x and random_selection.coords.y == availableActions[i].coords.y and random_selection.coords.z == availableActions[i].coords.z then
@@ -84,7 +84,7 @@ AddEventHandler('esx_communityservice:inCommunityService', function(actions_rema
 
 
 	ApplyPrisonerSkin()
-	ESX.Game.Teleport(playerPed, communityservice.ServiceLocation)
+	ESX.Game.Teleport(playerPed, Config.CommunityServiceServiceLocation)
 	isSentenced = true
 	communityServiceFinished = false
 
@@ -97,17 +97,17 @@ AddEventHandler('esx_communityservice:inCommunityService', function(actions_rema
 
 		Citizen.Wait(20000)
 
-		if GetDistanceBetweenCoords(GetEntityCoords(playerPed), communityservice.ServiceLocation.x, communityservice.ServiceLocation.y, communityservice.ServiceLocation.z) > 45 then
+		if GetDistanceBetweenCoords(GetEntityCoords(playerPed), Config.CommunityServiceServiceLocation.x, Config.CommunityServiceServiceLocation.y, Config.CommunityServiceServiceLocation.z) > 45 then
 			ESX.Game.Teleport(playerPed, communityservice.ServiceLocation)
 				TriggerEvent('chat:addMessage', { args = { _U('judge'), _U('escape_attempt') }, color = { 147, 196, 109 } })
 				TriggerServerEvent('esx_communityservice:extendService')
-				actionsRemaining = actionsRemaining + communityservice.ServiceExtensionOnEscape
+				actionsRemaining = actionsRemaining + Config.CommunityServiceServiceExtensionOnEscape
 		end
 
 	end
 
 	TriggerServerEvent('esx_communityservice:finishCommunityService', -1)
-	ESX.Game.Teleport(playerPed, communityservice.ReleaseLocation)
+	ESX.Game.Teleport(playerPed, Config.CommunityServiceReleaseLocation)
 	isSentenced = false
 
 	ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
@@ -238,11 +238,7 @@ end
 function DrawAvailableActions()
 
 	for i = 1, #availableActions do
---{ r = 50, g = 50, b = 204 }
-		--DrawMarker(21, communityservice.ServiceLocations[i].coords, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, 255, 0, 0, 100, false, true, 2, true, false, false, true)
 		DrawMarker(21, availableActions[i].coords, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, 50, 50, 204, 100, false, true, 2, true, false, false, false)
-
-		--DrawMarker(20, communityservice.ServiceLocations[i].coords, -1, 0.0, 0.0, 0, 0.0, 0.0, 1.0, 1.0, 1.0, 0, 162, 250, 80, true, true, 2, 0, 0, 0, 0)
 	end
 
 end
@@ -290,9 +286,9 @@ function ApplyPrisonerSkin()
 
 			TriggerEvent('skinchanger:getSkin', function(skin)
 				if skin.sex == 0 then
-					TriggerEvent('skinchanger:loadClothes', skin, communityservice.Uniforms['prison_wear'].male)
+					TriggerEvent('skinchanger:loadClothes', skin, Config.CommunityServiceUniforms['prison_wear'].male)
 				else
-					TriggerEvent('skinchanger:loadClothes', skin, communityservice.Uniforms['prison_wear'].female)
+					TriggerEvent('skinchanger:loadClothes', skin, Config.CommunityServiceUniforms['prison_wear'].female)
 				end
 			end)
 

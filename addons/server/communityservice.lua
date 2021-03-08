@@ -86,7 +86,7 @@ AddEventHandler('esx_communityservice:extendService', function()
 		if result[1] then
 			MySQL.Async.execute('UPDATE communityservice SET actions_remaining = actions_remaining + @extension_value WHERE identifier = @identifier', {
 				['@identifier'] = identifier,
-				['@extension_value'] = communityservice.ServiceExtensionOnEscape
+				['@extension_value'] = Config.CommunityServiceServiceExtensionOnEscape
 			})
 		else
 			print ("ESX_CommunityService :: Problem matching player identifier in database to reduce actions.")
