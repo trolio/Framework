@@ -29,7 +29,7 @@ Citizen.CreateThread(function()
 	ESX.TriggerServerCallback('esx_doorlock:getDoorInfo', function(doorInfo, count)
 		for localID = 1, count, 1 do
 			if doorInfo[localID] ~= nil then
-				doorlock.DoorList[doorInfo[localID].doorID].locked = doorInfo[localID].state
+				Config.DoorLockDoorList[doorInfo[localID].doorID].locked = doorInfo[localID].state
 			end
 		end
 	end)
@@ -45,8 +45,8 @@ Citizen.CreateThread(function()
 		Citizen.Wait(0)
 		local playerCoords = GetEntityCoords(PlayerPedId())
 
-		for i=1, #doorlock.DoorList do
-			local doorID   = doorlock.DoorList[i]
+		for i=1, #Config.DoorLockDoorList do
+			local doorID   = Config.DoorLockDoorList[i]
 			local distance = GetDistanceBetweenCoords(playerCoords, doorID.objCoords.x, doorID.objCoords.y, doorID.objCoords.z, true)
 			local isAuthorized = IsAuthorized(doorID)
 
@@ -110,7 +110,7 @@ end
 -- Set state for a door
 RegisterNetEvent('esx_doorlock:setState')
 AddEventHandler('esx_doorlock:setState', function(doorID, state)
-	doorlock.DoorList[doorID].locked = state
+	Config.DoorLockDoorList[doorID].locked = state
 end)
 
 function DrawText3D(coords, text, size)
@@ -165,8 +165,8 @@ AddEventHandler('esx_doorlock:test', function(keycards)
 		ClearPedTasks(ped)
 		FreezeEntityPosition(GetPlayerPed(-1), false)	
 	
-		for i=1, #doorlock.DoorList do
-			local doorID   = doorlock.DoorList[i]
+		for i=1, #Config.DoorLockDoorList do
+			local doorID   = Config.DoorLockDoorList[i]
 			doorID.locked = not doorID.locked
 	
 			TriggerServerEvent('esx_doorlock:updateState', i, doorID.locked) -- Broadcast new state of the door to everyone
@@ -183,16 +183,16 @@ Citizen.CreateThread(function()
 		Citizen.Wait(0)
 		local playerCoords = GetEntityCoords(PlayerPedId())
 		local ped = PlayerPedId()
-		local distance = GetDistanceBetweenCoords(playerCoords, doorlock.PowerDownCoords.x,doorlock.PowerDownCoords.y,doorlock.PowerDownCoords.z, true)
+		local distance = GetDistanceBetweenCoords(playerCoords, Config.DoorLockPowerDownCoords.x,Config.DoorLockPowerDownCoords.y,Config.DoorLockPowerDownCoords.z, true)
 		
 		if distance <= 2.0 then
 			
-			DrawText3D(doorlock.PowerDownCoords, "Press [~r~E~w~] to power down the grid", 2.0)
+			DrawText3D(Config.DoorLockPowerDownCoords, "Press [~r~E~w~] to power down the grid", 2.0)
 			
 			if IsControlJustReleased(0, Keys['E']) then
 
 				ESX.TriggerServerCallback('esx_doorlock:anycops', function(cops)
-					if cops >= doorlock.CopsRequired then
+					if cops >= Config.DoorLockCopsRequired then
 						TriggerServerEvent('esx_doorlock:davetest')
 					else
 						exports['mythic_notify']:SendAlert('error', 'Not enough officers in town')
