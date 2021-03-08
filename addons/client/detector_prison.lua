@@ -46,7 +46,7 @@ Citizen.CreateThread(function()
 
         if PlayerData.job ~= nil and PlayerData.job.name ~= "police" then
 
-            for detector, v in pairs(detector_prison.Detectors) do
+            for detector, v in pairs(Config.DetectorPrisonDetectors) do
 
                 local distanceCheck = GetDistanceBetweenCoords(pedCoords, v.x, v.y, v.z, true)
 
