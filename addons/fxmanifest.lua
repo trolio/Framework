@@ -16,6 +16,11 @@ client_scripts {
     "client/doorlock.lua",
     "client/drop.lua",
     "client/garage.lua",
+    "client/drugs/coke.lua",
+    "client/drugs/spice.lua",
+    "client/drugs/weed.lua",
+    "client/main/weed.lua",
+    "client/drugs.lua",
     "config/accessories.lua",
     "config/communityservice.lua",
     "config/dance.lua",
@@ -27,6 +32,7 @@ client_scripts {
     "config/doorlock.lua",
     "config/drop.lua",
     "config/garage.lua",
+    "config/drugs.lua",
     "locales/en.lua",
     '@mysql-async/lib/MySQL.lua'
 }
@@ -45,6 +51,10 @@ server_scripts {
     "server/doorlock",
     "server/drop.lua",
     "server/garage.lua",
+    "server/main/coke.lua",
+    "server/main/spice.lua",
+    "server/main/weed.lua",
+    "server/drugs.lua",
     "@es_extended/locale.lua",
     "locales/en.lua",
     '@mysql-asnyc/lib/MySQL.lua'
