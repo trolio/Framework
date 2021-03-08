@@ -310,12 +310,15 @@ Locales ['en'] = {
 	['locked'] = '~r~Locked~s~',
 	['press_button'] = '[E] %s',
     --yacht--
-        ['yacht_blip']        =   'Yacht robbery',
-        ['yacht_start_robbery']   =   'Press ~INPUT_CONTEXT~ to start robbery.',
-        ['yacht_search_robbery']  =   'Press ~INPUT_CONTEXT~ to search this place.',
-        ['yacht_suitcase_found']  =   'A suitcase with money has been found! Escape the yacht to end robbery.',
-        ['yacht_notification']    =   'The robbery on the yacht has started. Don\'t let the suitcase with money be stolen.',
-        ['yacht_robbery_started'] =   'Robbery has been started, search the yacht to find a suitcase with money.',
-        ['yacht_robbed_recent']   =   'This yacht has been robbed recently, the attack is impossible.',
-        ['yacht_police']          =   'There is not enough police available.'
+    ['yacht_blip']        =   'Yacht robbery',
+    ['yacht_start_robbery']   =   'Press ~INPUT_CONTEXT~ to start robbery.',
+    ['yacht_search_robbery']  =   'Press ~INPUT_CONTEXT~ to search this place.',
+    ['yacht_suitcase_found']  =   'A suitcase with money has been found! Escape the yacht to end robbery.',
+    ['yacht_notification']    =   'The robbery on the yacht has started. Don\'t let the suitcase with money be stolen.',
+    ['yacht_robbery_started'] =   'Robbery has been started, search the yacht to find a suitcase with money.',
+    ['yacht_robbed_recent']   =   'This yacht has been robbed recently, the attack is impossible.',
+    ['yacht_police']          =   'There is not enough police available.',
+	--drop--
+	['cash'] = 'cash',
+	['locale_currency'] = '$%s',
 }
