@@ -60,7 +60,7 @@ function OpenLSMenu(elems, menuname, menutitle, parent)
 			end
 			local vehicle = GetVehiclePedIsIn(GetPlayerPed(-1), false)			
 			local found = false
-			for k,v in pairs(Config.Menus) do
+			for k,v in pairs(bennys.Menus) do
 				if k == data.current.modType or isRimMod then
 					if data.current.label == _U('by_default') or string.match(data.current.label, _U('installed')) then
 						ESX.ShowNotification(_U('already_own') .. data.current.label)
@@ -183,7 +183,7 @@ function GetAction(data)
 		end
 	end
 
-	for k,v in pairs(Config.Menus) do
+	for k,v in pairs(bennys.Menus) do
 
 		if data.value == k then
 
@@ -317,15 +317,15 @@ function GetAction(data)
 				end
 			else
 				if data.value == 'primaryRespray' or data.value == 'secondaryRespray' or data.value == 'pearlescentRespray' or data.value == 'modFrontWheelsColor' then
-					for i=1, #Config.BennyColors, 1 do
+					for i=1, #bennys.BennyColors, 1 do
 						if data.value == 'primaryRespray' then
-							table.insert(elements, {label = Config.BennyColors[i].label, value = 'color1', color = Config.BennyColors[i].value})
+							table.insert(elements, {label = bennys.BennyColors[i].label, value = 'color1', color = bennys.BennyColors[i].value})
 						elseif data.value == 'secondaryRespray' then
-							table.insert(elements, {label = Config.BennyColors[i].label, value = 'color2', color = Config.BennyColors[i].value})
+							table.insert(elements, {label = bennys.BennyColors[i].label, value = 'color2', color = bennys.BennyColors[i].value})
 						elseif data.value == 'pearlescentRespray' then
-							table.insert(elements, {label = Config.BennyColors[i].label, value = 'pearlescentColor', color = Config.BennyColors[i].value})						
+							table.insert(elements, {label = bennys.BennyColors[i].label, value = 'pearlescentColor', color = bennys.BennyColors[i].value})						
 						elseif data.value == 'modFrontWheelsColor' then
-							table.insert(elements, {label = Config.BennyColors[i].label, value = 'wheelColor', color = Config.BennyColors[i].value})
+							table.insert(elements, {label = bennys.BennyColors[i].label, value = 'wheelColor', color = bennys.BennyColors[i].value})
 						end
 					end
 				else
@@ -350,7 +350,7 @@ end
 -- Blips
 Citizen.CreateThread(function()
 
-	for k,v in pairs(Config.BennyZones)do
+	for k,v in pairs(bennys.BennyZones)do
 		local blip = AddBlipForCoord(v.Pos.x, v.Pos.y, v.Pos.z)
 		SetBlipSprite(blip, 106)
 		SetBlipScale(blip, 0.7)
@@ -371,8 +371,8 @@ Citizen.CreateThread(function()
 			local currentZone = nil
 			local zone 		  = nil
 			local lastZone    = nil
-			if (PlayerData.job ~= nil and PlayerData.job.name == 'mecano') or Config.IsMecanoJobOnly == false then
-				for k,v in pairs(Config.BennyZones) do
+			if (PlayerData.job ~= nil and PlayerData.job.name == 'mecano') or bennys.IsMecanoJobOnly == false then
+				for k,v in pairs(bennys.BennyZones) do
 					if(GetDistanceBetweenCoords(coords, v.Pos.x, v.Pos.y, v.Pos.z, true) < v.Size.x) then
 						isInLSMarker  = true
 

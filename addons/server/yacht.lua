@@ -22,7 +22,7 @@ AddEventHandler('esx_yacht:robbery', function(text)
 			police = police+1
 		end
 	end
-		if police > Config.LSPD-1 and cooldown == 0 then
+		if police > yacht.LSPD-1 and cooldown == 0 then
 			TriggerClientEvent("esx_yacht:start", source)
 			TriggerClientEvent("esx_yacht:true", source)
 			TriggerClientEvent("esx_yacht:notification", source, _U('yacht_robbery_started'))
@@ -35,7 +35,7 @@ AddEventHandler('esx_yacht:robbery', function(text)
 			TriggerClientEvent("esx_yacht:notification", source, _U('yacht_robbed_recent'))
 		end
 
-		if police < Config.LSPD then
+		if police < yacht.LSPD then
 			TriggerClientEvent("esx_yacht:notification", source, _U('yacht_police'))
 		end
 end)
@@ -45,7 +45,7 @@ AddEventHandler('esx_yacht:reward', function()
 	local _source = source
 	local xPlayer = ESX.GetPlayerFromId(_source)
 	
-	xPlayer.addMoney(math.random(Config.MinReward,Config.MaxReward))
+	xPlayer.addMoney(math.random(yacht.MinReward,yacht.MaxReward))
 end)
 
 function LSPD()

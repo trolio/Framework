@@ -31,7 +31,7 @@ local correct = 0
 
 local bait = "none"
 
-local blip = AddBlipForCoord(Config.SellFish.x, Config.SellFish.y, Config.SellFish.z)
+local blip = AddBlipForCoord(fishing.SellFish.x, fishing.SellFish.y, fishing.SellFish.z)
 
 			SetBlipSprite (blip, 356)
 			SetBlipDisplay(blip, 4)
@@ -42,7 +42,7 @@ local blip = AddBlipForCoord(Config.SellFish.x, Config.SellFish.y, Config.SellFi
 			AddTextComponentString("Fish selling")
 			EndTextCommandSetBlipName(blip)
 			
-local blip2 = AddBlipForCoord(Config.SellTurtle.x, Config.SellTurtle.y, Config.SellTurtle.z)
+local blip2 = AddBlipForCoord(fishing.SellTurtle.x, fishing.SellTurtle.y, fishing.SellTurtle.z)
 
 			SetBlipSprite (blip2, 68)
 			SetBlipDisplay(blip2, 4)
@@ -53,7 +53,7 @@ local blip2 = AddBlipForCoord(Config.SellTurtle.x, Config.SellTurtle.y, Config.S
 			AddTextComponentString("Sea Turtle dealer")
 			EndTextCommandSetBlipName(blip2)
 			
-local blip3 = AddBlipForCoord(Config.SellShark.x, Config.SellShark.y, Config.SellShark.z)
+local blip3 = AddBlipForCoord(fishing.SellShark.x, fishing.SellShark.y, fishing.SellShark.z)
 
 			SetBlipSprite (blip3, 68)
 			SetBlipDisplay(blip3, 4)
@@ -64,7 +64,7 @@ local blip3 = AddBlipForCoord(Config.SellShark.x, Config.SellShark.y, Config.Sel
 			AddTextComponentString("Shark meat dealer")
 			EndTextCommandSetBlipName(blip3)
 			
-for _, info in pairs(Config.FishMarkerZones) do
+for _, info in pairs(fishing.MarkerZones) do
 		info.blip = AddBlipForCoord(info.x, info.y, info.z)
 		SetBlipSprite(info.blip, 455)
 		SetBlipDisplay(info.blip, 4)
@@ -79,9 +79,9 @@ for _, info in pairs(Config.FishMarkerZones) do
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
-        for k in pairs(Config.FishMarkerZones) do
+        for k in pairs(fishing.MarkerZones) do
 		
-            DrawMarker(1, Config.FishMarkerZones[k].x, Config.FishMarkerZones[k].y, Config.FishMarkerZones[k].z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.0, 3.0, 1.0, 0, 150, 150, 100, 0, 0, 0, 0)	
+            DrawMarker(1, fishing.MarkerZones[k].x, fishing.MarkerZones[k].y, fishing.MarkerZones[k].z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.0, 3.0, 1.0, 0, 150, 150, 100, 0, 0, 0, 0)	
 		end
     end
 end)
@@ -166,15 +166,15 @@ Citizen.CreateThread(function()
 
 		
 		
-		if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), Config.SellFish.x, Config.SellFish.y, Config.SellFish.z, true) <= 3 then
+		if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), fishing.SellFish.x, fishing.SellFish.y, fishing.SellFish.z, true) <= 3 then
 			TriggerServerEvent('fishing:startSelling', "fish")
 			Citizen.Wait(4000)
 		end
-		if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), Config.SellShark.x, Config.SellShark.y, Config.SellShark.z, true) <= 3 then
+		if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), fishing.SellShark.x, fishing.SellShark.y, fishing.SellShark.z, true) <= 3 then
 			TriggerServerEvent('fishing:startSelling', "shark")
 			Citizen.Wait(4000)
 		end
-		if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), Config.SellTurtle.x, Config.SellTurtle.y, Config.SellTurtle.z, true) <= 3 then
+		if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), fishing.SellTurtle.x, fishing.SellTurtle.y, fishing.SellTurtle.z, true) <= 3 then
 			TriggerServerEvent('fishing:startSelling', "turtle")
 			Citizen.Wait(4000)
 		end
@@ -188,15 +188,15 @@ Citizen.CreateThread(function()
 	while true do
 		Wait(1)
 		
-		DrawMarker(1, Config.SellFish.x, Config.SellFish.y, Config.SellFish.z , 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
-		DrawMarker(1, Config.SellTurtle.x, Config.SellTurtle.y, Config.SellTurtle.z , 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
-		DrawMarker(1, Config.SellShark.x, Config.SellShark.y, Config.SellShark.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
+		DrawMarker(1, fishing.SellFish.x, fishing.SellFish.y, fishing.SellFish.z , 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
+		DrawMarker(1, fishing.SellTurtle.x, fishing.SellTurtle.y, fishing.SellTurtle.z , 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
+		DrawMarker(1, fishing.SellShark.x, fishing.SellShark.y, fishing.SellShark.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 2.0, 0, 70, 250, 30, false, true, 2, false, false, false, false)
 	end
 end)
 
 Citizen.CreateThread(function()
 	while true do
-		local wait = math.random(Config.FishTime.a , Config.FishTime.b)
+		local wait = math.random(fishing.FishTime.a , fishing.FishTime.b)
 		Wait(wait)
 			if fishing then
 				pause = true
@@ -265,16 +265,16 @@ Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
 	
-        for k in pairs(Config.FishMarkerZones) do
+        for k in pairs(fishing.MarkerZones) do
         	local ped = PlayerPedId()
             local pedcoords = GetEntityCoords(ped, false)
-            local distance = Vdist(pedcoords.x, pedcoords.y, pedcoords.z, Config.FishMarkerZones[k].x, Config.FishMarkerZones[k].y, Config.FishMarkerZones[k].z)
+            local distance = Vdist(pedcoords.x, pedcoords.y, pedcoords.z, fishing.MarkerZones[k].x, fishing.MarkerZones[k].y, fishing.MarkerZones[k].z)
             if distance <= 1.40 then
 
 					DisplayHelpText('Press E to rent a boat')
 					
 					if IsControlJustPressed(0, Keys['E']) and IsPedOnFoot(ped) then
-						OpenBoatsMenu(Config.FishMarkerZones[k].xs, Config.FishMarkerZones[k].ys, Config.FishMarkerZones[k].zs)
+						OpenBoatsMenu(fishing.MarkerZones[k].xs, fishing.MarkerZones[k].ys, fishing.MarkerZones[k].zs)
 					end 
 			elseif distance < 1.45 then
 				ESX.UI.Menu.CloseAll()

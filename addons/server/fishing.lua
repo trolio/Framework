@@ -205,8 +205,8 @@ AddEventHandler('fishing:startSelling', function(item)
 						TriggerClientEvent('esx:showNotification', source, '~r~You dont have enough~s~ fish')			
 					else   
 						xPlayer.removeInventoryItem('fish', 5)
-						local payment = Config.FishPrice.a
-						payment = math.random(Config.FishPrice.a, Config.FishPrice.b) 
+						local payment = fishing.FishPrice.a
+						payment = math.random(fishing.FishPrice.a, fishing.FishPrice.b) 
 						xPlayer.addMoney(payment)
 						
 						
@@ -224,8 +224,8 @@ AddEventHandler('fishing:startSelling', function(item)
 					TriggerClientEvent('esx:showNotification', source, '~r~You dont have enough~s~ turtles')			
 				else   
 					xPlayer.removeInventoryItem('turtle', 1)
-					local payment = Config.TurtlePrice.a
-					payment = math.random(Config.TurtlePrice.a, Config.TurtlePrice.b) 
+					local payment = fishing.TurtlePrice.a
+					payment = math.random(fishing.TurtlePrice.a, fishing.TurtlePrice.b) 
 					xPlayer.addAccountMoney('black_money', payment)
 					
 					
@@ -238,8 +238,8 @@ AddEventHandler('fishing:startSelling', function(item)
 					TriggerClientEvent('esx:showNotification', source, '~r~You dont have enough~s~ sharks')			
 				else   
 					xPlayer.removeInventoryItem('shark', 1)
-					local payment = Config.SharkPrice.a
-					payment = math.random(Config.SharkPrice.a, Config.SharkPrice.b)
+					local payment = fishing.SharkPrice.a
+					payment = math.random(fishing.SharkPrice.a, fishing.SharkPrice.b)
 					xPlayer.addAccountMoney('black_money', payment)
 					
 					

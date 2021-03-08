@@ -105,7 +105,7 @@ function OpenShopMenu(accessory)
 			align = 'right',
 			elements = {
 				{label = _U('no'), value = 'no'},
-				{label = _U('yes', ESX.Math.GroupDigits(Config.Price)), value = 'yes'}
+				{label = _U('yes', ESX.Math.GroupDigits(accessories.Price)), value = 'yes'}
 			}
 		}, function(data, menu)
 			menu.close()
@@ -179,7 +179,7 @@ end)
 
 -- Create Blips --
 Citizen.CreateThread(function()
-	for k,v in pairs(Config.ShopsBlips) do
+	for k,v in pairs(accessories.ShopsBlips) do
 		if v.Pos ~= nil then
 			for i=1, #v.Pos, 1 do
 				local blip = AddBlipForCoord(v.Pos[i].x, v.Pos[i].y, v.Pos[i].z)
@@ -204,10 +204,10 @@ Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(0)
 		local coords = GetEntityCoords(PlayerPedId())
-		for k,v in pairs(Config.Zones) do
+		for k,v in pairs(accessories.Zones) do
 			for i = 1, #v.Pos, 1 do
-				if(Config.Type ~= -1 and GetDistanceBetweenCoords(coords, v.Pos[i].x, v.Pos[i].y, v.Pos[i].z, true) < Config.DrawDistance) then
-					DrawMarker(Config.Type, v.Pos[i].x, v.Pos[i].y, v.Pos[i].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.Size.x, Config.Size.y, Config.Size.z, Config.Color.r, Config.Color.g, Config.Color.b, 100, false, true, 2, false, false, false, false)
+				if(accessories.Type ~= -1 and GetDistanceBetweenCoords(coords, v.Pos[i].x, v.Pos[i].y, v.Pos[i].z, true) < accessories.DrawDistance) then
+					DrawMarker(accessories.Type, v.Pos[i].x, v.Pos[i].y, v.Pos[i].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, accessories.Size.x, accessories.Size.y, accessories.Size.z, accessories.Color.r, accessories.Color.g, accessories.Color.b, 100, false, true, 2, false, false, false, false)
 				end
 			end
 		end
@@ -222,9 +222,9 @@ Citizen.CreateThread(function()
 		local coords      = GetEntityCoords(PlayerPedId())
 		local isInMarker  = false
 		local currentZone = nil
-		for k,v in pairs(Config.Zones) do
+		for k,v in pairs(accessories.Zones) do
 			for i = 1, #v.Pos, 1 do
-				if GetDistanceBetweenCoords(coords, v.Pos[i].x, v.Pos[i].y, v.Pos[i].z, true) < Config.Size.x then
+				if GetDistanceBetweenCoords(coords, v.Pos[i].x, v.Pos[i].y, v.Pos[i].z, true) < accessories.Size.x then
 					isInMarker  = true
 					currentZone = k
 				end
@@ -257,11 +257,11 @@ Citizen.CreateThread(function()
 				OpenShopMenu(CurrentActionData.accessory)
 				CurrentAction = nil
 			end
-		elseif CurrentAction == nil and not Config.EnableControls then
+		elseif CurrentAction == nil and not accessories.EnableControls then
 			Citizen.Wait(500)
 		end
 
-		if Config.EnableControls then
+		if accessories.EnableControls then
 			if GetLastInputMethod(2) then
 				if IsControlJustReleased(2, Keys['-']) and not isDead then
 					OpenAccessoryMenu()

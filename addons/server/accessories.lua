@@ -6,8 +6,8 @@ RegisterServerEvent('esx_accessories:pay')
 AddEventHandler('esx_accessories:pay', function()
 	local xPlayer = ESX.GetPlayerFromId(source)
 
-	xPlayer.removeMoney(Config.Price)
-	TriggerClientEvent('esx:showNotification', source, _U('accessories_you_paid', ESX.Math.GroupDigits(Config.Price)))
+	xPlayer.removeMoney(accessories.Price)
+	TriggerClientEvent('esx:showNotification', source, _U('accessories_you_paid', ESX.Math.GroupDigits(accessories.Price)))
 end)
 
 RegisterServerEvent('esx_accessories:save')
@@ -43,5 +43,5 @@ end)
 ESX.RegisterServerCallback('esx_accessories:checkMoney', function(source, cb)
 	local xPlayer = ESX.GetPlayerFromId(source)
 
-	cb(xPlayer.get('money') >= Config.Price)
+	cb(xPlayer.get('money') >= accessories.Price)
 end)
