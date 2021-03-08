@@ -1027,3 +1027,8 @@ Config.DanceDanceTime = 120000 -- 2mins
 Config.DanceBuyDance ={
 	x = 114.553, y = -1294.932, z = 29.269
 }
+--DETECTOR--
+Config.DetectorDetectors = {
+    { x = -3009.79, y = 7488.95, z = 59.9 },
+    { x = -3010.79, y = 7488.95, z = 59.9  }
+}
