@@ -1019,3 +1019,11 @@ Config.CommunityServiceUniforms = {
 		}
 	}
 }
+--DANCE--
+Config.DanceDraw3D = false
+
+Config.DanceDanceTime = 120000 -- 2mins
+
+Config.DanceBuyDance ={
+	x = 114.553, y = -1294.932, z = 29.269
+}

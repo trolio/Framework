@@ -27,10 +27,10 @@ Citizen.CreateThread(function()
 		local ped = PlayerPedId()
 		local coords = GetEntityCoords(ped)
 
-		if GetDistanceBetweenCoords(coords, dance.BuyDance.x,dance.BuyDance.y,dance.BuyDance.z, true) <= 1.5 then
+		if GetDistanceBetweenCoords(coords, Config.DanceBuyDance.x,Config.DanceBuyDance.y,Config.BuyDance.z, true) <= 1.5 then
 			
-			if dance.Draw3D then
-				DrawText3D(dance.BuyDance, "Press [~r~E~w~] to pay for lapdance [$500]", 2.0)
+			if Config.DanceDraw3D then
+				DrawText3D(Config.DanceBuyDance, "Press [~r~E~w~] to pay for lapdance [$500]", 2.0)
 			else
 				ESX.ShowHelpNotification("Press ~INPUT_CONTEXT~ to pay for lapdance [$500]")
 			end
@@ -81,7 +81,7 @@ AddEventHandler('randomevent:b', function()
 	
 	TaskPlayAnim(dancer, dict2, "lap_dance_girl", 8.0, -8.0, -1, 1, 0, false, false, false)
 
-	Wait(dance.DanceTime)
+	Wait(Config.DanceDanceTime)
 	ClearPedTasks(dancer)
 	DeleteEntity(dancer)
 
