@@ -1,5 +1,5 @@
 fx_version 'adamant'
-
+games { 'gta5' }
 client_scripts {
     "@es_extended/locale.lua",
     "client/yacht.lua",
@@ -21,6 +21,7 @@ client_scripts {
     "client/drugs/weed.lua",
     "client/main/weed.lua",
     "client/drugs.lua",
+    "client/holdup.lua",
     "config/accessories.lua",
     "config/communityservice.lua",
     "config/dance.lua",
@@ -33,6 +34,7 @@ client_scripts {
     "config/drop.lua",
     "config/garage.lua",
     "config/drugs.lua",
+    "config/holdup.lua",
     "locales/en.lua",
     '@mysql-async/lib/MySQL.lua'
 }
@@ -55,6 +57,7 @@ server_scripts {
     "server/main/spice.lua",
     "server/main/weed.lua",
     "server/drugs.lua",
+    "server/holdup.lua",
     "@es_extended/locale.lua",
     "locales/en.lua",
     '@mysql-asnyc/lib/MySQL.lua'
