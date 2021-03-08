@@ -15,6 +15,7 @@ client_scripts {
     "client/detector_prison.lua",
     "client/doorlock.lua",
     "client/drop.lua",
+    "client/garage.lua",
     "config/accessories.lua",
     "config/communityservice.lua",
     "config/dance.lua",
@@ -25,6 +26,7 @@ client_scripts {
     "config/detector_prison.lua",
     "config/doorlock.lua",
     "config/drop.lua",
+    "config/garage.lua",
     "locales/en.lua",
     '@mysql-async/lib/MySQL.lua'
 }
@@ -42,6 +44,7 @@ server_scripts {
     "server/dance.lua",
     "server/doorlock",
     "server/drop.lua",
+    "server/garage.lua",
     "@es_extended/locale.lua",
     "locales/en.lua",
     '@mysql-asnyc/lib/MySQL.lua'
