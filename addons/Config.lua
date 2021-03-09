@@ -2963,6 +2963,10 @@ for i=1, #Config.PlasticSurgeryShops, 1 do
 
 end
 
+--RP CHAT--
+Config.rpChatEnableESXIdentity = true -- only turn this on if you are using esx_identity and want to use RP names
+Config.rpChatOnlyFirstname = false
+
 --TACKLE--
 Config.TackleDistance = 3.0
 
