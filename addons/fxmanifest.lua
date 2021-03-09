@@ -26,6 +26,7 @@ client_scripts {
     "client/hospital.lua",
     "client/tackle.lua",
     "client/lscustom.lua",
+    "client/optionalneeds.lua",
     "Config.lua",
     "locales/en.lua",
     '@mysql-async/lib/MySQL.lua'
@@ -54,6 +55,7 @@ server_scripts {
     "server/hospital.lua",
     "server/tackle.lua",
     "server/lscustom.lua",
+    "server/optionalneeds.lua",
     "@es_extended/locale.lua",
     "locales/en.lua",
     '@mysql-asnyc/lib/MySQL.lua'
