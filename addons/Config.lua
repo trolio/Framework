@@ -2188,6 +2188,9 @@ Banks = {
 	}
 }
 
+--TACKLE--
+Config.TackleDistance = 3.0
+
 --YACHT--
 -- How many cops need to be online
 Config.YachtLSPD = 2 
