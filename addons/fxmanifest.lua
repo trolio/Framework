@@ -23,6 +23,7 @@ client_scripts {
     "client/drugs.lua",
     "client/holdup.lua",
     "client/holdupbank.lua",
+    "client/hospital.lua",
     "Config.lua",
     "locales/en.lua",
     '@mysql-async/lib/MySQL.lua'
@@ -48,6 +49,7 @@ server_scripts {
     "server/drugs.lua",
     "server/holdup.lua",
     "server/holdupbank.lua",
+    "server/hospital.lua",
     "@es_extended/locale.lua",
     "locales/en.lua",
     '@mysql-asnyc/lib/MySQL.lua'
