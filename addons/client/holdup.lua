@@ -100,9 +100,9 @@ Citizen.CreateThread(function()
 			local storePos = v.position
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, storePos.x, storePos.y, storePos.z)
 
-			if distance < holdup.Marker.DrawDistance then
+			if distance < Config.HoldupMarker.DrawDistance then
 				if not holdingUp then
-					DrawMarker(holdup.Marker.Type, storePos.x, storePos.y, storePos.z - 1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, holdup.Marker.x, holdup.Marker.y, holdup.Marker.z, holdup.Marker.r, holdup.Marker.g, holdup.Marker.b, holdup.Marker.a, false, false, 2, false, false, false, false)
+					DrawMarker(Config.HoldupMarker.Type, storePos.x, storePos.y, storePos.z - 1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Config.HoldupMarker.x, Config.HoldupMarker.y, Config.HoldupMarker.z, Config.HoldupMarker.r, Config.HoldupMarker.g, Config.HoldupMarker.b, Config.HoldupMarker.a, false, false, 2, false, false, false, false)
 
 					if distance < 0.5 then
 						ESX.ShowHelpNotification(_U('press_to_rob', v.nameOfStore))
@@ -121,7 +121,7 @@ Citizen.CreateThread(function()
 
 		if holdingUp then
 			local storePos = Stores[store].position
-			if Vdist(playerPos.x, playerPos.y, playerPos.z, storePos.x, storePos.y, storePos.z) > holdup.MaxDistance then
+			if Vdist(playerPos.x, playerPos.y, playerPos.z, storePos.x, storePos.y, storePos.z) > Config.HoldupMaxDistance then
 				TriggerServerEvent('esx_holdup:tooFar', store)
 			end
 		end
