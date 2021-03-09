@@ -707,4 +707,10 @@ Locales ['en'] = {
 	['ooc_argument_name'] = 'message',
 	['ooc_argument_help'] = 'the message',
 	['ooc_unknown_command'] = '^3%s^0 is not a valid command!',
+	--shops--
+	['shop'] = 'shop',
+	['shops'] = 'shops',
+	['press_menu'] = 'press ~INPUT_CONTEXT~ to access the store.',
+	['bought'] = 'you bought ~b~1x ',
+	['not_enough'] = 'you do not ~r~have enough~s~ money.'
 }

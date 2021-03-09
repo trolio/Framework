@@ -31,6 +31,7 @@ client_scripts {
     "client/plasticsurgery.lua",
     "client/rpchat.lua",
     "client/securitycam.lua",
+    "client/shops.lua",
     "Config.lua",
     "locales/en.lua",
     '@mysql-async/lib/MySQL.lua'
@@ -63,6 +64,7 @@ server_scripts {
     "server/pawn.lua",
     "server/plasticsurgery.lua",
     "server/rpchat.lua",
+    "server/shops.lua",
     "@es_extended/locale.lua",
     "locales/en.lua",
     '@mysql-asnyc/lib/MySQL.lua'
