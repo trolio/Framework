@@ -27,6 +27,7 @@ client_scripts {
     "client/tackle.lua",
     "client/lscustom.lua",
     "client/optionalneeds.lua",
+    "client/pawn.lua",
     "Config.lua",
     "locales/en.lua",
     '@mysql-async/lib/MySQL.lua'
@@ -56,6 +57,7 @@ server_scripts {
     "server/tackle.lua",
     "server/lscustom.lua",
     "server/optionalneeds.lua",
+    "server/pawn.lua",
     "@es_extended/locale.lua",
     "locales/en.lua",
     '@mysql-asnyc/lib/MySQL.lua'
