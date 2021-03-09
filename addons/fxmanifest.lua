@@ -30,6 +30,7 @@ client_scripts {
     "client/pawn.lua",
     "client/plasticsurgery.lua",
     "client/rpchat.lua",
+    "client/securitycam.lua",
     "Config.lua",
     "locales/en.lua",
     '@mysql-async/lib/MySQL.lua'
