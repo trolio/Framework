@@ -121,7 +121,7 @@ end)
 ESX.RegisterServerCallback('eden_garage:checkMoney', function(source, cb)
     local xPlayer = ESX.GetPlayerFromId(source)
 
-    if xPlayer.get('money') >= garage.Price then
+    if xPlayer.get('money') >= Config.GaragePrice then
         cb(true)
     else
         cb(false)
@@ -132,8 +132,8 @@ end)
 -- Withdraw money
 AddEventHandler('eden_garage:pay', function()
     local xPlayer = ESX.GetPlayerFromId(source)
-    xPlayer.removeMoney(garage.Price)
-    TriggerClientEvent('esx:showNotification', source, _U('you_paid', garage.Price))
+    xPlayer.removeMoney(Config.GaragePrice)
+    TriggerClientEvent('esx:showNotification', source, _U('you_paid', Config.GaragePrice))
 end)
 
 -- End money withdraw

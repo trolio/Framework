@@ -32,21 +32,21 @@ function refreshBlips()
     local zones = {}
     local blipInfo = {}
 
-    for zoneKey, zoneValues in pairs(garage.Garages) do
+    for zoneKey, zoneValues in pairs(Config.GarageGarages) do
         local blip = AddBlipForCoord(zoneValues.Pos.x, zoneValues.Pos.y, zoneValues.Pos.z)
-        SetBlipSprite(blip, garage.BlipInfos.Sprite)
+        SetBlipSprite(blip, Config.GarageBlipInfos.Sprite)
         SetBlipDisplay(blip, 4)
         SetBlipScale(blip, 0.7)
-        SetBlipColour(blip, garage.BlipInfos.Color)
+        SetBlipColour(blip, Config.GarageBlipInfos.Color)
         SetBlipAsShortRange(blip, true)
         BeginTextCommandSetBlipName('STRING')
         AddTextComponentString(zoneKey)
         EndTextCommandSetBlipName(blip)
         local blip = AddBlipForCoord(zoneValues.MunicipalPoundPoint.Pos.x, zoneValues.MunicipalPoundPoint.Pos.y, zoneValues.MunicipalPoundPoint.Pos.z)
-        SetBlipSprite(blip, garage.BlipPound.Sprite)
+        SetBlipSprite(blip, Config.GarageBlipPound.Sprite)
         SetBlipDisplay(blip, 4)
         SetBlipScale(blip, 0.7)
-        SetBlipColour(blip, garage.BlipPound.Color)
+        SetBlipColour(blip, Config.GarageBlipPound.Color)
         SetBlipAsShortRange(blip, true)
         BeginTextCommandSetBlipName('STRING')
         AddTextComponentString(_U('impound_yard'))
@@ -75,7 +75,7 @@ function OpenMenuGarage(PointType)
 
     if PointType == 'pound' then
         table.insert(elements, {
-            label = _U('return_vehicle', garage.Price),
+            label = _U('return_vehicle', Config.GaragePrice),
             value = 'return_vehicle'
         })
     end
@@ -249,7 +249,7 @@ function StockVehicleMenu()
                             TriggerServerEvent('eden_garage:logging', 'vehicle returned to the garage: ' .. engineHealth)
 
                             if engineHealth < 1000 then
-                                local fraisRep = math.floor((1000 - engineHealth) * garage.RepairMultiplier)
+                                local fraisRep = math.floor((1000 - engineHealth) * Config.GarageRepairMultiplier)
                                 reparation(fraisRep, vehicle, vehicleProps)
                             else
                                 ranger(vehicle, vehicleProps)
@@ -409,8 +409,8 @@ Citizen.CreateThread(function()
         Wait(0)
         local coords = GetEntityCoords(GetPlayerPed(-1))
 
-        for k, v in pairs(garage.Garages) do
-            if (GetDistanceBetweenCoords(coords, v.Pos.x, v.Pos.y, v.Pos.z, true) < garage.DrawDistance) then
+        for k, v in pairs(Config.GarageGarages) do
+            if (GetDistanceBetweenCoords(coords, v.Pos.x, v.Pos.y, v.Pos.z, true) < Config.GarageDrawDistance) then
                 DrawMarker(v.SpawnPoint.Marker, v.SpawnPoint.Pos.x, v.SpawnPoint.Pos.y, v.SpawnPoint.Pos.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, v.SpawnPoint.Size.x, v.SpawnPoint.Size.y, v.SpawnPoint.Size.z, v.SpawnPoint.Color.r, v.SpawnPoint.Color.g, v.SpawnPoint.Color.b, 100, false, true, 2, false, false, false, false)
                 DrawMarker(v.DeletePoint.Marker, v.DeletePoint.Pos.x, v.DeletePoint.Pos.y, v.DeletePoint.Pos.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, v.DeletePoint.Size.x, v.DeletePoint.Size.y, v.DeletePoint.Size.z, v.DeletePoint.Color.r, v.DeletePoint.Color.g, v.DeletePoint.Color.b, 100, false, true, 2, false, false, false, false)
             end
@@ -432,7 +432,7 @@ Citizen.CreateThread(function()
         local coords = GetEntityCoords(GetPlayerPed(-1))
         local isInMarker = false
 
-        for _, v in pairs(garage.Garages) do
+        for _, v in pairs(Config.GarageGarages) do
             if (GetDistanceBetweenCoords(coords, v.SpawnPoint.Pos.x, v.SpawnPoint.Pos.y, v.SpawnPoint.Pos.z, true) < v.Size.x) then
                 isInMarker = true
                 this_Garage = v
