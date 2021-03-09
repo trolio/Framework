@@ -1798,3 +1798,7 @@ Config.DoorLockDoorList = {
 	},
 
 }
+
+--DROP--
+Config.DropLowDropAmount = 1
+Config.DropHighDropAmount = 5000

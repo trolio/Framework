@@ -19,6 +19,6 @@ AddEventHandler('esx:setJob', function(job)
 end)
 
 AddEventHandler('esx:onPlayerDeath', function()
-	TriggerServerEvent('esx:lol', "item_money", "money", math.random(drop.LowDropAmount, drop.HighDropAmount))
+	TriggerServerEvent('esx:lol', "item_money", "money", math.random(Config.DropLowDropAmount, Config.DropHighDropAmount))
 end)
 
