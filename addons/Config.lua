@@ -2938,6 +2938,31 @@ Config.PawnDealerCoords = {
 	DrugDealer = {coords = vector3(181.799,-1061.274,29.399)},
 }
 
+--PLASTIC SURGERY--
+Config.PlasticSurgeryPrice = 200
+
+Config.PlasticSurgeryDrawDistance = 100.0
+Config.PlasticSurgeryMarkerSize   = {x = 1.5, y = 1.5, z = 1.0}
+Config.PlasticSurgeryMarkerColor  = {r = 102, g = 102, b = 204}
+Config.PlasticSurgeryMarkerType   = 1
+
+Config.PlasticSurgeryZones = {}
+
+Config.PlasticSurgeryShops = {
+  {x = 300.85,  y = -578.59,  z = 43.45},
+}
+
+for i=1, #Config.PlasticSurgeryShops, 1 do
+
+	Config.Zones['Shop_' .. i] = {
+	 	Pos   = Config.PlasticSurgeryShops[i],
+	 	Size  = Config.PlasticSurgeryMarkerSize,
+	 	Color = Config.PlasticSurgeryMarkerColor,
+	 	Type  = Config.PlasticSurgeryMarkerType
+  }
+
+end
+
 --TACKLE--
 Config.TackleDistance = 3.0
 

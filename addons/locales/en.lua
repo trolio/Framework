@@ -685,4 +685,12 @@ Locales ['en'] = {
 	['dealer_notenough'] = 'you don\'t have enough of that to sell!',
 	['dealer_sold'] = 'you\'ve sold ~b~%sx~s~ ~y~%s~s~ for ~g~$%s~s~',
 	['item'] = '$%s',
+	--plastic surgery--
+	['valid_purchase'] = 'validate this purchase?',
+    ['yes'] = 'yes',
+    ['no'] = 'no',
+    ['not_enough_money'] = 'you do not have enough money',
+    ['press_access'] = 'press ~INPUT_CONTEXT~ to access the menu',
+    ['barber_blip'] = 'FixYourFace3000',
+    ['you_paid'] = 'you paid ',
 }

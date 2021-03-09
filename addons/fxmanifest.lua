@@ -28,6 +28,7 @@ client_scripts {
     "client/lscustom.lua",
     "client/optionalneeds.lua",
     "client/pawn.lua",
+    "client/plasticsurgery.lua",
     "Config.lua",
     "locales/en.lua",
     '@mysql-async/lib/MySQL.lua'
@@ -58,6 +59,7 @@ server_scripts {
     "server/lscustom.lua",
     "server/optionalneeds.lua",
     "server/pawn.lua",
+    "server/plasticsurgery.lua",
     "@es_extended/locale.lua",
     "locales/en.lua",
     '@mysql-asnyc/lib/MySQL.lua'
