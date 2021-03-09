@@ -25,6 +25,7 @@ client_scripts {
     "client/holdupbank.lua",
     "client/hospital.lua",
     "client/tackle.lua",
+    "client/lscustom.lua",
     "Config.lua",
     "locales/en.lua",
     '@mysql-async/lib/MySQL.lua'
@@ -52,6 +53,7 @@ server_scripts {
     "server/holdupbank.lua",
     "server/hospital.lua",
     "server/tackle.lua",
+    "server/lscustom.lua",
     "@es_extended/locale.lua",
     "locales/en.lua",
     '@mysql-asnyc/lib/MySQL.lua'
