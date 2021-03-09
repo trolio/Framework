@@ -2157,3 +2157,11 @@ Stores = {
 		lastRobbed = 0
 	},
 }
+
+--YACHT--
+-- How many cops need to be online
+Config.YachtLSPD = 2 
+-- Minimum reward
+Config.YachtMinReward = 50000
+-- Maximum reward
+Config.YachtMaxReward = 125000 
