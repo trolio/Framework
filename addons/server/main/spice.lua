@@ -6,7 +6,7 @@ TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 RegisterServerEvent('esx_drugs:sellDrug')
 AddEventHandler('esx_drugs:sellDrug', function(itemName, amount)
 	local xPlayer = ESX.GetPlayerFromId(source)
-	local price = drugs.DrugDealerItems[itemName]
+	local price = Config.DrugsDrugDealerItems[itemName]
 	local xItem = xPlayer.getInventoryItem(itemName)
 
 	if not price then
@@ -21,7 +21,7 @@ AddEventHandler('esx_drugs:sellDrug', function(itemName, amount)
 
 	price = ESX.Math.Round(price * amount)
 
-	if drugs.GiveBlack then
+	if Config.DrugsGiveBlack then
 		xPlayer.addAccountMoney('black_money', price)
 	else
 		xPlayer.addMoney(price)
@@ -34,7 +34,7 @@ end)
 
 ESX.RegisterServerCallback('esx_drugs:buyLicense', function(source, cb, licenseName)
 	local xPlayer = ESX.GetPlayerFromId(source)
-	local license = drugs.LicensePrices[licenseName]
+	local license = Config.DrugsLicensePrices[licenseName]
 
 	if license == nil then
 		print(('esx_drugs: %s attempted to buy an invalid license!'):format(xPlayer.identifier))
@@ -80,7 +80,7 @@ AddEventHandler('esx_drugs:processSpice', function()
 	if not playersProcessingSpice[source] then
 		local _source = source
 
-		playersProcessingSpice[_source] = ESX.SetTimeout(drugs.Delays.SpiceProcessing, function()
+		playersProcessingSpice[_source] = ESX.SetTimeout(Config.DrugsDelays.SpiceProcessing, function()
 			local xPlayer = ESX.GetPlayerFromId(_source)
 			local xCannabinoid, xSpice = xPlayer.getInventoryItem('cannabinoid'), xPlayer.getInventoryItem('spice')
 

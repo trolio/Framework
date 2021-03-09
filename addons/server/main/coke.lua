@@ -19,7 +19,7 @@ end)
 RegisterServerEvent('esx_drugs:sellDrug')
 AddEventHandler('esx_drugs:sellDrug', function(itemName, amount)
 	local xPlayer = ESX.GetPlayerFromId(source)
-	local price = drugs.DrugDealerItems[itemName]
+	local price = Config.DrugsDrugDealerItems[itemName]
 	local xItem = xPlayer.getInventoryItem(itemName)
 
 	if not price then
@@ -34,7 +34,7 @@ AddEventHandler('esx_drugs:sellDrug', function(itemName, amount)
 
 	price = ESX.Math.Round(price * amount)
 
-	if drugs.GiveBlack then
+	if Config.DrugsGiveBlack then
 		xPlayer.addAccountMoney('black_money', price)
 	else
 		xPlayer.addMoney(price)
@@ -47,7 +47,7 @@ end)
 
 ESX.RegisterServerCallback('esx_drugs:buyLicense', function(source, cb, licenseName)
 	local xPlayer = ESX.GetPlayerFromId(source)
-	local license = drugs.LicensePrices[licenseName]
+	local license = Config.DrugsLicensePrices[licenseName]
 
 	if license == nil then
 		print(('esx_drugs: %s attempted to buy an invalid license!'):format(xPlayer.identifier))
@@ -93,7 +93,7 @@ AddEventHandler('esx_drugs:processCoke', function()
 	if not playersProcessingCoke[source] then
 		local _source = source
 
-		playersProcessingCoke[_source] = ESX.SetTimeout(drugs.Delays.CokeProcessing, function()
+		playersProcessingCoke[_source] = ESX.SetTimeout(Config.DrugsDelays.CokeProcessing, function()
 			local xPlayer = ESX.GetPlayerFromId(_source)
 			local xCrack, xCoke = xPlayer.getInventoryItem('crack'), xPlayer.getInventoryItem('coke')
 

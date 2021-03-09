@@ -33,7 +33,7 @@ Citizen.CreateThread(function()
 		local playerPed = PlayerPedId()
 		local coords = GetEntityCoords(playerPed)
 
-		if GetDistanceBetweenCoords(coords, drugs.DealerCoords.DrugDealer.coords, true) < 1.35 then
+		if GetDistanceBetweenCoords(coords, Config.DrugsDealerCoords.DrugDealer.coords, true) < 1.35 then
 			if not menuOpen then
 			--	ESX.ShowHelpNotification(_U('dealer_prompt')) -- uncomment all these to make it press E to sell all
 
@@ -61,7 +61,7 @@ function OpenDrugShop()
 	menuOpen = true
 
 	for k, v in pairs(ESX.GetPlayerData().inventory) do
-		local price = drugs.DrugDealerItems[v.name]
+		local price = Config.DrugsDrugDealerItems[v.name]
 
 		if price and v.count > 0 then
 			TriggerServerEvent('esx_drugs:sellDrug', v.name, v.count)
@@ -80,7 +80,7 @@ end)
 
 function OpenBuyLicenseMenu(licenseName)
 	menuOpen = true
-	local license = drugs.LicensePrices[licenseName]
+	local license = Config.DrugsLicensePrices[licenseName]
 
 	local elements = {
 		{
@@ -142,7 +142,7 @@ function CreateBlipCircle(coords, text, radius, color, sprite)
 end
 
 Citizen.CreateThread(function()
-	for k,zone in pairs(drugs.CircleZones) do
+	for k,zone in pairs(Config.DrugsCircleZones) do
 
 		CreateBlipCircle(zone.coords, zone.name, zone.radius, zone.color, zone.sprite)
 	end
@@ -150,8 +150,8 @@ end)
 
 Citizen.CreateThread(function()
 
-	if drugs.DealerBlip then
-		for k,zone in pairs(drugs.DealerCoords) do
+	if Config.DrugsDealerBlip then
+		for k,zone in pairs(Config.DrugsDealerCoords) do
 			CreateBlipCircle(zone.coords, zone.name, zone.radius, zone.color, zone.sprite)
 		end
 	end

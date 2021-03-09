@@ -8,7 +8,7 @@ Citizen.CreateThread(function()
 		Citizen.Wait(10)
 		local coords = GetEntityCoords(PlayerPedId())
 
-		if GetDistanceBetweenCoords(coords, drugs.CircleZones.WeedField.coords, true) < 50 then
+		if GetDistanceBetweenCoords(coords, Config.DrugsCircleZones.WeedField.coords, true) < 50 then
 			SpawnWeedPlants()
 			Citizen.Wait(500)
 		else
@@ -23,14 +23,14 @@ Citizen.CreateThread(function()
 		local playerPed = PlayerPedId()
 		local coords = GetEntityCoords(playerPed)
 
-		if GetDistanceBetweenCoords(coords, drugs.ProcessZones.WeedProcessing.coords, true) < 3 then
+		if GetDistanceBetweenCoords(coords, Config.DrugsProcessZones.WeedProcessing.coords, true) < 3 then
 			if not isProcessing then
 				ESX.ShowHelpNotification(_U('weed_processprompt'))
 			end
 
 			if IsControlJustReleased(0, Keys['E']) and not isProcessing then
 
-				if drugs.LicenseEnable then
+				if Config.DrugsLicenseEnable then
 					ESX.TriggerServerCallback('esx_license:checkLicense', function(hasProcessingLicense)
 						if hasProcessingLicense then
 							ProcessWeed()
@@ -54,14 +54,14 @@ function ProcessWeed()
 
 	ESX.ShowNotification(_U('weed_processingstarted'))
 	TriggerServerEvent('esx_drugs:processCannabis')
-	local timeLeft = drugs.Delays.WeedProcessing / 1000
+	local timeLeft = Config.DrugsDelays.WeedProcessing / 1000
 	local playerPed = PlayerPedId()
 
 	while timeLeft > 0 do
 		Citizen.Wait(1000)
 		timeLeft = timeLeft - 1
 
-		if GetDistanceBetweenCoords(GetEntityCoords(playerPed), drugs.ProcessZones.WeedProcessing.coords, false) > 4 then
+		if GetDistanceBetweenCoords(GetEntityCoords(playerPed), Config.DrugsProcessZones.WeedProcessing.coords, false) > 4 then
 			ESX.ShowNotification(_U('weed_processingtoofar'))
 			TriggerServerEvent('esx_drugs:cancelProcessing')
 			break
@@ -94,7 +94,7 @@ Citizen.CreateThread(function()
 				isPickingUp = true
 
 				ESX.TriggerServerCallback('esx_drugs:anycops', function(cops)
-					if cops >= drugs.CopsRequired then
+					if cops >= Config.DrugsCopsRequired then
 						
 						isPickingUp = true
 						
@@ -166,7 +166,7 @@ function ValidateWeedCoord(plantCoord)
 			end
 		end
 
-		if GetDistanceBetweenCoords(plantCoord, drugs.CircleZones.WeedField.coords, false) > 50 then
+		if GetDistanceBetweenCoords(plantCoord, Config.DrugsCircleZones.WeedField.coords, false) > 50 then
 			validate = false
 		end
 
@@ -190,8 +190,8 @@ function GenerateWeedCoords()
 		math.randomseed(GetGameTimer())
 		local modY = math.random(-9, 9) -- effects the amount that spawn
 
-		weedCoordX = drugs.CircleZones.WeedField.coords.x + modX
-		weedCoordY = drugs.CircleZones.WeedField.coords.y + modY
+		weedCoordX = Config.DrugsCircleZones.WeedField.coords.x + modX
+		weedCoordY = Config.DrugsCircleZones.WeedField.coords.y + modY
 
 		local coordZ = GetCoordZweed(weedCoordX, weedCoordY)
 		local coord = vector3(weedCoordX, weedCoordY, coordZ)

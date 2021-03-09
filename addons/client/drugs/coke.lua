@@ -9,7 +9,7 @@ Citizen.CreateThread(function()
 		Citizen.Wait(10)
 		local coords = GetEntityCoords(PlayerPedId())
 
-		if GetDistanceBetweenCoords(coords, drugs.CircleZones.CokeField.coords, true) < 50 then
+		if GetDistanceBetweenCoords(coords, Config.DrugsCircleZones.CokeField.coords, true) < 50 then
 			SpawnCoke()
 			Citizen.Wait(500)
 		else
@@ -24,7 +24,7 @@ Citizen.CreateThread(function()
 		local playerPed = PlayerPedId()
 		local coords = GetEntityCoords(playerPed)
 
-		if GetDistanceBetweenCoords(coords, drugs.ProcessZones.CokeProcessing.coords, true) < 3 then
+		if GetDistanceBetweenCoords(coords, Config.DrugsProcessZones.CokeProcessing.coords, true) < 3 then
 			if not isProcessing then
 				ESX.ShowHelpNotification(_U('coke_processprompt'))
 			end
@@ -33,13 +33,13 @@ Citizen.CreateThread(function()
 				isProcessing = true
 				ESX.ShowNotification(_U('coke_processingstarted'))
 				TriggerServerEvent('esx_drugs:processCoke')
-				local timeLeft = drugs.Delays.CokeProcessing / 1000
+				local timeLeft = Config.DrugsDelays.CokeProcessing / 1000
 
 				while timeLeft > 0 do
 					Citizen.Wait(1000)
 					timeLeft = timeLeft - 1
 
-					if GetDistanceBetweenCoords(GetEntityCoords(playerPed), drugs.ProcessZones.CokeProcessing.coords, false) > 10 then
+					if GetDistanceBetweenCoords(GetEntityCoords(playerPed), Config.DrugsProcessZones.CokeProcessing.coords, false) > 10 then
 						ESX.ShowNotification(_U('coke_processingtoofar'))
 						TriggerServerEvent('esx_drugs:cancelProcessing')
 						break
@@ -76,7 +76,7 @@ Citizen.CreateThread(function()
 			if IsControlJustReleased(0, Keys['E']) and not isPickingUp then
 				
 				ESX.TriggerServerCallback('esx_drugs:anycops', function(cops)
-					if cops >= drugs.CopsRequired then
+					if cops >= Config.DrugsCopsRequired then
 						
 						isPickingUp = true
 						
@@ -145,7 +145,7 @@ function ValidateCokeCoord(plantCoord)
 			end
 		end
 
-		if GetDistanceBetweenCoords(plantCoord, drugs.CircleZones.CokeField.coords, false) > 50 then
+		if GetDistanceBetweenCoords(plantCoord, Config.DrugsCircleZones.CokeField.coords, false) > 50 then
 			validate = false
 		end
 
@@ -170,15 +170,15 @@ function GenerateCokeCoords()
 		local modY = math.random(-100, 100)
 
 		if modX > 0 then
-			cokeCoordX = drugs.CircleZones.CokeField.coords.x + modX
+			cokeCoordX = Config.DrugsCircleZones.CokeField.coords.x + modX
 		else
-			cokeCoordX = drugs.CircleZones.CokeField.coords.x - modX
+			cokeCoordX = Config.DrugsCircleZones.CokeField.coords.x - modX
 		end
 
 		if modY > 0 then
-			cokeCoordY = drugs.CircleZones.CokeField.coords.y + modY
+			cokeCoordY = Config.DrugsCircleZones.CokeField.coords.y + modY
 		else
-			cokeCoordY = drugs.CircleZones.CokeField.coords.y - modY
+			cokeCoordY = Config.DrugsCircleZones.CokeField.coords.y - modY
 		end
 
 		local coordZ = GetCoordZcoke(cokeCoordX, cokeCoordY)

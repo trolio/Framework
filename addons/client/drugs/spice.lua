@@ -9,7 +9,7 @@ Citizen.CreateThread(function()
 		Citizen.Wait(10)
 		local coords = GetEntityCoords(PlayerPedId())
 
-		if GetDistanceBetweenCoords(coords, drugs.CircleZones.SpiceField.coords, true) < 50 then
+		if GetDistanceBetweenCoords(coords, Config.DrugsCircleZones.SpiceField.coords, true) < 50 then
 			SpawnSpice()
 			Citizen.Wait(500)
 		else
@@ -24,7 +24,7 @@ Citizen.CreateThread(function()
 		local playerPed = PlayerPedId()
 		local coords = GetEntityCoords(playerPed)
 
-		if GetDistanceBetweenCoords(coords, drugs.ProcessZones.SpiceProcessing.coords, true) < 3 then
+		if GetDistanceBetweenCoords(coords, Config.DrugsProcessZones.SpiceProcessing.coords, true) < 3 then
 			if not isProcessing then
 				ESX.ShowHelpNotification(_U('spice_processprompt'))
 			end
@@ -33,13 +33,13 @@ Citizen.CreateThread(function()
 				isProcessing = true
 				ESX.ShowNotification(_U('spice_processingstarted'))
 				TriggerServerEvent('esx_drugs:processSpice')
-				local timeLeft = drugs.Delays.SpiceProcessing / 1000
+				local timeLeft = Config.DrugsDelays.SpiceProcessing / 1000
 
 				while timeLeft > 0 do
 					Citizen.Wait(1000)
 					timeLeft = timeLeft - 1
 
-					if GetDistanceBetweenCoords(GetEntityCoords(playerPed), drugs.ProcessZones.SpiceProcessing.coords, false) > 10 then
+					if GetDistanceBetweenCoords(GetEntityCoords(playerPed), Config.DrugsProcessZones.SpiceProcessing.coords, false) > 10 then
 						ESX.ShowNotification(_U('spice_processingtoofar'))
 						TriggerServerEvent('esx_drugs:cancelProcessing')
 						break
@@ -77,7 +77,7 @@ Citizen.CreateThread(function()
 				isPickingUp = true
 
 				ESX.TriggerServerCallback('esx_drugs:anycops', function(cops)
-					if cops >= drugs.CopsRequired then
+					if cops >= Config.DrugsCopsRequired then
 						
 						isPickingUp = true
 						
@@ -149,7 +149,7 @@ function ValidateSpiceCoord(plantCoord)
 			end
 		end
 
-		if GetDistanceBetweenCoords(plantCoord, drugs.CircleZones.SpiceField.coords, false) > 50 then
+		if GetDistanceBetweenCoords(plantCoord, Config.DrugsCircleZones.SpiceField.coords, false) > 50 then
 			validate = false
 		end
 
@@ -174,15 +174,15 @@ function GenerateSpiceCoords()
 		local modY = math.random(-100, 100)
 
 		if modX > 0 then
-			spiceCoordX = drugs.CircleZones.SpiceField.coords.x + modX
+			spiceCoordX = Config.DrugsCircleZones.SpiceField.coords.x + modX
 		else
-			spiceCoordX = drugs.CircleZones.SpiceField.coords.x - modX
+			spiceCoordX = Config.DrugsCircleZones.SpiceField.coords.x - modX
 		end
 
 		if modY > 0 then
-			spiceCoordY = drugs.CircleZones.SpiceField.coords.y + modY
+			spiceCoordY = Config.DrugsCircleZones.SpiceField.coords.y + modY
 		else
-			spiceCoordY = drugs.CircleZones.SpiceField.coords.y - modY
+			spiceCoordY = Config.DrugsCircleZones.SpiceField.coords.y - modY
 		end
 
 		local coordZ = GetCoordZspice(spiceCoordX, spiceCoordY)
