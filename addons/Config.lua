@@ -2894,6 +2894,10 @@ Config.lsCustomMenus = {
 	}
 }
 
+--OPTIONAL NEEDS--
+Config.OptionalNeedsTickTime = 100
+Config.OptionalNeedsUpdateClientTime = 5000
+
 --TACKLE--
 Config.TackleDistance = 3.0
 
