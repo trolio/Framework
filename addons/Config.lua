@@ -2967,9 +2967,6 @@ end
 Config.rpChatEnableESXIdentity = true -- only turn this on if you are using esx_identity and want to use RP names
 Config.rpChatOnlyFirstname = false
 
---SHOPS--
-
-
 --TACKLE--
 Config.TackleDistance = 3.0
 
